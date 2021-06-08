@@ -25,6 +25,27 @@ class LoginViewController: UIViewController {
             scrollView?.addGestureRecognizer(hideKeyboardGesture)
         }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+            let login = loginTextField.text!
+            let password = passwordTextField.text!
+            
+            if login == "admin" && password == "123456" {
+                return true
+            } else {
+                // Создаем контроллер
+                let alert = UIAlertController(title: "Error", message: "Check login and/or password.", preferredStyle: .alert)
+                // Создаем кнопку для UIAlertController
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                // Добавляем кнопку на UIAlertController
+                alert.addAction(action)
+                // Показываем UIAlertController
+                present(alert, animated: true, completion: nil)
+
+                return false
+            }
+        }
+
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         // Получаем текст логина
                 let login = loginTextField.text!
@@ -33,10 +54,12 @@ class LoginViewController: UIViewController {
                 
                 // Проверяем, верны ли они
                 if login == "admin" && password == "123456" {
-                    print("успешная авторизация")
+                    print("Успешная авторизация")
                 } else {
-                    print("неуспешная авторизация")
+                    print("Неуспешная авторизация")
                 }
+        
+        
 
     }
     
