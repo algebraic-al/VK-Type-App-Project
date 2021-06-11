@@ -12,4 +12,12 @@ final class FriendsTableViewCell: UITableViewCell {
     
     static let identifier = "FriendsTableViewCell"
     
+    @IBOutlet weak var friendAvatarImage: UIImageView!
+    
+    @IBOutlet weak var friendName: UILabel!
+    
+    func configure(_ friend: UserModel) {
+        friendAvatarImage.image = UIImage(named: friend.avatarImageName)
+        friendName.text = friend.name
+    }
 }
