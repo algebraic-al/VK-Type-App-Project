@@ -10,10 +10,28 @@ import UIKit
 final class MyGroupsViewController: UIViewController {
     
     @IBOutlet weak private var tableView: UITableView!
-    let groups = GroupStorage.shared.groups
+    var groups = GroupStorage.shared.groups
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    //Добавляем возможность добавить группу к нашим группам
+    @IBAction func addGroup(_ segue: UIStoryboardSegue) {
+        guard
+            let sourceController = segue.source as? AllGroupsViewController,
+            let indexPressedCell = sourceController.tableView.indexPathForSelectedRow
+        else {
+            return
+        }
+        
+        let group = sourceController.allGroups[indexPressedCell.row]
+        
+        if !groups.contains(where: { $0.name == group.name }) {
+            groups.append(group)
+            tableView.reloadData()
+        }
+        
     }
 }
 
