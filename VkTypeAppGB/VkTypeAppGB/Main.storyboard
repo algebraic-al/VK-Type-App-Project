@@ -403,7 +403,7 @@
                                         <connections>
                                             <outlet property="friendAvatarImage" destination="08Z-CB-0jE" id="SDO-Yo-o6K"/>
                                             <outlet property="friendName" destination="hX3-KO-HsB" id="47F-vZ-vd9"/>
-                                            <segue destination="No5-Mx-eaF" kind="show" id="KCZ-vA-cBq"/>
+                                            <segue destination="No5-Mx-eaF" kind="show" identifier="showFriendsPhotosSegue" id="KCZ-vA-cBq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -436,8 +436,8 @@
         <!--Friend's Photos-->
         <scene sceneID="2Mf-uz-dlV">
             <objects>
-                <collectionViewController title="Friend's Photos" modalPresentationStyle="fullScreen" id="No5-Mx-eaF" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H6q-uM-jG3">
+                <collectionViewController title="Friend's Photos" modalPresentationStyle="fullScreen" id="No5-Mx-eaF" customClass="ChosenFriendCollectionViewController" customModule="VkTypeAppGB" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H6q-uM-jG3" customClass="Chose">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -448,13 +448,33 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h6o-Ke-pdM">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChosenFriendCollectionCell" id="h6o-Ke-pdM" customClass="ChosenFriendCollectionCell" customModule="VkTypeAppGB" customModuleProvider="target">
+                                <rect key="frame" x="43" y="0.0" width="328" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6gg-fF-j6s">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="216"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EjB-H4-znQ">
+                                            <rect key="frame" x="64" y="8" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="DIG-b4-7x5"/>
+                                                <constraint firstAttribute="height" constant="200" id="GcL-q3-EwC"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="EjB-H4-znQ" secondAttribute="trailing" constant="64" id="5vo-OC-Rvm"/>
+                                        <constraint firstAttribute="bottom" secondItem="EjB-H4-znQ" secondAttribute="bottom" constant="8" id="HWl-oJ-olF"/>
+                                        <constraint firstItem="EjB-H4-znQ" firstAttribute="centerY" secondItem="6gg-fF-j6s" secondAttribute="centerY" id="J5A-Uh-yga"/>
+                                        <constraint firstItem="EjB-H4-znQ" firstAttribute="top" secondItem="6gg-fF-j6s" secondAttribute="top" constant="8" id="MzX-IA-7jm"/>
+                                        <constraint firstItem="EjB-H4-znQ" firstAttribute="centerX" secondItem="6gg-fF-j6s" secondAttribute="centerX" id="NI8-2b-gyq"/>
+                                        <constraint firstItem="EjB-H4-znQ" firstAttribute="leading" secondItem="6gg-fF-j6s" secondAttribute="leading" constant="64" id="Tec-4C-THs"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="chosenFriendPhoto" destination="EjB-H4-znQ" id="Dmq-kD-jZP"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

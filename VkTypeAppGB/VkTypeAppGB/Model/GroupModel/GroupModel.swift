@@ -24,15 +24,18 @@ struct GroupStorage {
     
     private init() {
         groups = [
-            GroupModel(name: "Пацанский цитатник", description: "В основном мысли Джейсэна Статхэма", groupImage: "Stetham"),
-            GroupModel(name: "Фехралевый Жуль-Верн", description: "Для тех, кому интересно", groupImage: "JulVern"),
+            GroupModel(name: "Пацанский цитатник", description: "В основном мысли Джейсена Стэтхема", groupImage: "Stetham"),
+            GroupModel(name: "Готовим вкусно", description: "Рецепты на каждый день. Кухни всех стран.", groupImage: "CookGood"),
             GroupModel(name: "Corgi Club", description: "Название говорит само за себя", groupImage: "CorgiClub")
         ]
         searchGroups = [
-            GroupModel(name: "Кинолюбы", description: "Описание группы", groupImage: "CorgiClub"),
-            GroupModel(name: "Готовим вкусно", description: "Описание группы", groupImage: "CorgiClub"),
-            GroupModel(name: "Комики", description: "Описание группы", groupImage: "CorgiClub"),
-            GroupModel(name: "Театры Петербурга", description: "Описание группы", groupImage: "CorgiClub")
+            GroupModel(name: "Пацанский цитатник", description: "В основном мысли Джейсэна Статхэма", groupImage: "Stetham"),
+            GroupModel(name: "Фехралевый Жуль-Верн", description: "Кургазак vs Догомыс", groupImage: "JulVern"),
+            GroupModel(name: "Corgi Club", description: "Название говорит само за себя", groupImage: "CorgiClub"),
+            GroupModel(name: "Кинолюбы", description: "Всё о кино и не только", groupImage: "Kinolovers"),
+            GroupModel(name: "Готовим вкусно", description: "Рецепты на каждый день. Кухни всех стран.", groupImage: "CookGood"),
+            GroupModel(name: "Комики", description: "Группа, посвящённая Stand Up комедии", groupImage: "StandUp"),
+            GroupModel(name: "Театры Петербурга", description: "Расписание спектаклей и билеты", groupImage: "SpbT")
         ]
     }
     

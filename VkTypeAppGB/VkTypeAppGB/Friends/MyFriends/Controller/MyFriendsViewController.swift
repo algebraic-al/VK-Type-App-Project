@@ -31,5 +31,14 @@ extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFriendsPhotosSegue",
+           let destinationController = segue.destination as? ChosenFriendCollectionViewController,
+            let indexSelectedCell = tableView.indexPathForSelectedRow {
+            destinationController.friendPhotos = friends[indexSelectedCell.row].photos
+            }
+        }
+        
+    }
     
-}
+
